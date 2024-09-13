@@ -1,0 +1,16 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+
+    - sudo git clone https://github.com/denilsonbonatti/mundo-invertido.git
+    - sudo cp -R mundo-invertido/* /var/www/html/
+  
+  tags:
+    - Dev  # Tag atribuída ao seu runner
+
+  only:
+    - main  # Dispara o pipeline apenas na branch 'main' (ou outra branch desejada)
+
